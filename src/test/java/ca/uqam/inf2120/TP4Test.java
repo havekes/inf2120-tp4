@@ -266,6 +266,17 @@ class TP4Test {
     }
 
     @Test
+    void classeExtra() {
+        String[] t = { "allo", "Comment", "Ca", "l", "universite" };
+        String[] result = { "Comment", "allo", "Ca", "l", "universite" };
+
+        Function<String, Integer> f =  (s) -> s.length() >= 5 && Character.isUpperCase(s.charAt(0)) ? 0 : 1;
+        Principali20.classer(t, f);
+
+        assertArrayEquals(result, t);
+    }
+
+    @Test
     void echanger1() {
         Pile< Integer > p = new Pile<>();
 

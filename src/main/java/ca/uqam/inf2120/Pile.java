@@ -39,8 +39,13 @@ public class Pile< E > {
      *
      */
     public void echanger() {
-        // Placez votre code ici pour la question 4.
-
+        if (!estVide() && sommet.precedant != null) {
+            Chainon deuxieme = sommet.precedant;
+            Chainon troiseme = deuxieme.precedant;
+            deuxieme.precedant = sommet;
+            sommet.precedant = troiseme;
+            sommet = deuxieme;
+        }
     }
 
     public boolean estVide() {

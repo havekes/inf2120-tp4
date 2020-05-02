@@ -37,7 +37,27 @@ public class Phrase extends ArrayList< String > {
      * Enleve les 'Mot Vide' de la Phrase sans changer l'ordre des autres Mots.
      */
     public void nettoyer() {
-        // Placez votre code ici pour la question 3.
+        for (int i = 0; i < size(); i++) {
+            if (binarySearch(this.get(i), 0, MOT_VIDE.length - 1) != -1) {
+                this.remove(i);
+                i--;
+            }
+        }
+    }
 
+    static int binarySearch(String search, int left, int right) {
+        if (right < left) {
+            return -1;
+        }
+
+        int middle = (left + right) / 2;
+
+        if (search.compareToIgnoreCase(MOT_VIDE[middle]) > 0) {
+            return binarySearch(search, middle + 1, right);
+        } else if (search.compareToIgnoreCase(MOT_VIDE[middle]) < 0) {
+            return binarySearch(search, left, middle - 1);
+        } else {
+            return middle;
+        }
     }
 }
