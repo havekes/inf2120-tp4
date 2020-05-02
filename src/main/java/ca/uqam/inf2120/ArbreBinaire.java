@@ -281,14 +281,13 @@ public class ArbreBinaire< Clef extends Comparable< Clef > > {
      * ************************************************************************
      * Placez vos explications ici :
      *
+     * On recherche d'abbord le neud qui correspond a la cible
+     * On appelle la methode hauteur(Noeud<Clef> noeud) avec le neud courant.
      *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+     * La methode hauteur(Noeud<Clef> noeud) est recursive.
+     * Si le neud est null, on retourne la hauteur de 0
+     * Si le neux n'a pas d'enfant, on retourne la hauteur est de 1
+     * Sinon on retourne 1 + la hateur maximale parmis les enfants
      *
      * ************************************************************************
      *
@@ -308,20 +307,11 @@ public class ArbreBinaire< Clef extends Comparable< Clef > > {
         if (noeud == null) {
             return 0;
         }
-
-        if (noeud._droite != null && noeud._gauche != null) {
-            return 1 + max(hauteur(noeud._droite), hauteur(noeud._gauche));
+        if (noeud._droite == null && noeud._gauche == null) {
+            return 1;
         }
 
-        if (noeud._droite != null) {
-            return 1 + hauteur(noeud._droite);
-        }
-
-        if (noeud._gauche != null) {
-            return 1 + hauteur(noeud._gauche);
-        }
-
-        return 1;
+        return 1 + max(hauteur(noeud._droite), hauteur(noeud._gauche));
     }
 
     static int max(int a, int b) {
