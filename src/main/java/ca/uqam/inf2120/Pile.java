@@ -26,15 +26,19 @@ public class Pile< E > {
      * ************************************************************************
      * Placez vos explications ici :
      *
+     * On verifie d'abord que la pile contient au moins 2 elements
+     * Ensuite on defini 2 variables temporaires :
+     *   - deuxieme est le chainon precedent au sommet de la pile,
+     *     donc le 2e en partant du haut de la pile
+     *   - troisieme est le chainon precedent a deuxieme, soit le 3e en partant
+     *     du haut de la pile, il peut etre null si la pile contient 2 elements
      *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+     * On definit le chainon precedent a deuxieme comme le sommet (2e.precedent -> 1e)
+     * et on definir le chaine precedent a sommet comme etant troisieme (1e.precedent -> 3e)
+     * Cela permet d'echanger les deux premiers elements de la pile.
+     * Il reste a faire pointer le sommet de la pile vers
+     * le nouveau 1er element qui est deuxieme  (sommet -> 2e)
+     * On a alors (sommet -> 2e -> 1e -> 3e)
      * ************************************************************************
      *
      */

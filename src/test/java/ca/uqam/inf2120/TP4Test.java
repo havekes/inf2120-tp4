@@ -135,7 +135,6 @@ class TP4Test {
 
 
 
-
     /**
      * Les deux methodes suivante sont utilise pour les tests sur la methode 'classer'.
      */

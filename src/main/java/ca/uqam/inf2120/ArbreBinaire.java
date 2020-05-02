@@ -299,9 +299,33 @@ public class ArbreBinaire< Clef extends Comparable< Clef > > {
      *         sinon la hauteur du noeud contenant la cible est retourne.
      */
     public int hauteur( Clef cible ) {
-        // Placez votre code ici pour la question 5.
+        Pair<Noeud<Clef>, Noeud<Clef>> noeud = rechercheNoeud(cible);
 
-        return 0;
+        return hauteur(noeud.deuxieme);
+    }
+
+    public int hauteur(Noeud<Clef> noeud) {
+        if (noeud == null) {
+            return 0;
+        }
+
+        if (noeud._droite != null && noeud._gauche != null) {
+            return 1 + max(hauteur(noeud._droite), hauteur(noeud._gauche));
+        }
+
+        if (noeud._droite != null) {
+            return 1 + hauteur(noeud._droite);
+        }
+
+        if (noeud._gauche != null) {
+            return 1 + hauteur(noeud._gauche);
+        }
+
+        return 1;
+    }
+
+    static int max(int a, int b) {
+        return a > b ? a : b;
     }
 
     /**

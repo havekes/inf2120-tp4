@@ -15,11 +15,9 @@ public class Principali20 {
      * ************************************************************************
      * Placez votre analyse de complexite temporelle ici, analyse de pire cas :
      *
-     *
-     *
-     *
-     *
-     *
+     * La boucle externe effectue n/2 tours
+     * La boucle interne effectue (n-1)n/2 tours (comme dans le tri selection classique)
+     * La complexite est donc O(n^2)
      *
      *
      *
